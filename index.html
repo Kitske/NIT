@@ -3,110 +3,92 @@
 <head lang="uk">
     <meta charset="UTF-8">
     <title>JS buylist</title>
-    <meta name="description" content=”NIT 1st homework
-    ">
+    <meta name="description" content=”NIT_1st_homework">
     <meta name="keywords" content="HTML,CSS,JS,NIT">
-    <meta name="author" content=”Dvorak Alexander
-    ">
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="main.css"/>
 </head>
+
 <body>
-<div class="container">
-    <div class="center">
-        <div class="left">
-            <div class="form">
-                <input class="field" type="text” placeholder=" Назва товару">
-                <button class="add">
-                    <div class="tooltip"><span class="tooltiptext">Додати товар до таблиці</span>Додати</div>
-                </button>
+<div class="main-layout">
+    <div class="container">
+        <div class=" left">
+            <div class="inner">
+                <div class="segment form">
+                    <input class="input" type="text" placeholder="Назва товару" width="100%">
+                    <button data-tooltip="Додати новий товар" class="button add">Додати</button>
+                </div>
+                <div class="list-of-items">
+                    <template id="product-template">
+                        <div class="list-element">
+                            <div class="name-cell">
+                                <span data-class="edit-mode" id="name" class="name"></span>
+                            </div>
+                            <div class="central-cell">
+                                <button data-tooltip="На одну одиницю менше" id="minus" class="button round minus red">
+                                    —
+                                </button>
+                                <div class="quantity-count">1</div>
+                                <button data-tooltip="На одну одиницю більше" id="plus" class="button round plus green">
+                                    +
+                                </button>
+                            </div>
+                            <div class="right-cell">
+                                <button data-tooltip="Відмітити товар як куплений" class="button bought">Куплено
+                                </button>
+                                <button data-tooltip="Видалити товар зі спимку покупок"
+                                        class="button red delete-button">
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
+                    </template>
+                </div>
             </div>
-            <div class="table">
-                <div class="goods">
-                    <div class="name">Помідори</div>
-                    <div class="controller">
-                        <button class="minus">
-                            <div class="tooltip"><span class="tooltiptext">Відняти одну одиницю товару</span>-</div>
-                        </button>
-                        <div class="numberTaken">1</div>
-                        <button class="plus">
-                            <div class="tooltip"><span class="tooltiptext">Додати одну одиницю товару</span>+</div>
-                        </button>
-                    </div>
-                    <div class="choose">
-                        <button class="bought">
-                            <div class="tooltip"><span class="tooltiptext">Підтвердити покупку</span>Куплено</div>
-                        </button>
-                        <button class="delete">
-                            <div class="tooltip"><span class="tooltiptext">Видалити товар із списку</span>✕</div>
-                        </button>
+        </div>
+        <div class=" right">
+            <div class="inner">
+                <div class=" segment text">
+                    <div class="items-left-text" style="margin: 0">Залишилося</div>
+                </div>
+                <div class="segment items-left">
+                    <div class="products-holder">
+                        <template class="preview-template">
+                            <div class="product">
+                                <div class="label"></div>
+                                <div class="circular">1</div>
+                            </div>
+                        </template>
                     </div>
                 </div>
-                <div class="goods">
-                    <div class="name">Печиво</div>
-                    <div class="controller">
-                        <button class="minus">
-                            <div class="tooltip"><span class="tooltiptext">Відняти одну одиницю товару</span>-</div>
-                        </button>
-                        <div class="numberTaken">1</div>
-                        <button class="plus">
-                            <div class="tooltip"><span class="tooltiptext">Додати одну одиницю товару</span>+</div>
-                        </button>
-                    </div>
-                    <div class="choose">
-                        <button class="bought">
-                            <div class="tooltip"><span class="tooltiptext">Підтвердити покупку</span>Куплено</div>
-                        </button>
-                        <button class="delete">
-                            <div class="tooltip"><span class="tooltiptext">Видалити товар із списку</span>✕</div>
-                        </button>
-                    </div>
+                <div class=" segment text">
+                    <div class="items-bought-text" style="margin: 0;">Куплено</div>
                 </div>
-                <div class="goods">
-                    <div class="name">Сир</div>
-                    <div class="controller">
-                        <button class="minus">
-                            <div class="tooltip"><span class="tooltiptext">Відняти одну одиницю товару</span>-</div>
-                        </button>
-                        <div class="numberTaken">1</div>
-                        <button class="plus">
-                            <div class="tooltip"><span class="tooltiptext">Додати одну одиницю товару</span>+</div>
-                        </button>
-                    </div>
-                    <div class="choose">
-                        <button class="bought">
-                            <div class="tooltip"><span class="tooltiptext">Підтвердити покупку</span>Куплено</div>
-                        </button>
-                        <button class="delete">
-                            <div class="tooltip"><span class="tooltiptext">Видалити товар із списку</span>✕</div>
-                        </button>
-                    </div>
+                <div class=" segment items-bought">
+                <template class="preview-template">
+                        <div class="product">
+                            <div class="label"></div>
+                            <div class="circular">1</div>
+                        </div>
+                    </template>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="right">
-    <div class="leftText">Залишилося</div>
-    <div class="leftCell">
-        <div class="leftGood">Помідори
-            <div class="orange">1</div>
-        </div>
-        <div class="leftGood">Печиво
-            <div class="orange">1</div>
-        </div>
-        <div class="leftGood">Сир
-            <div class="orange">1</div>
-        </div>
-    </div>
-    <div class="boughtText">Куплено</div>
-    <div class="boughtCell"></div>
-</div>
 <div class="badge">
     <div class="badge-text">
         <div class="hide-from-printing"><br>Buy List</br></div>
         <div class="madeby"><br>Created by:</br>Alexander Dvorak</div>
     </div>
 </div>
-</b
+  
+<!-- jQuery JavaScript -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!--Own JavaScript -->
+<script type="text/javascript" src="main.js"></script>
+
+</body>
+</html>
